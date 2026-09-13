@@ -19,6 +19,20 @@ Recent Updates
 ----
 <div style="display: grid; grid-template-columns: 90px auto; gap: 14px 18px; line-height: 1.6;">
 
+  <span style="color: #4F81BD; font-weight: 700;">Sep 2026</span>
+  <span>
+    🚀 Excited to share our new paper,
+    <a href="https://arxiv.org/abs/2608.29507">
+      Denoising as Projection: Constrained Optimization with Gradient-Guided Diffusion
+    </a>!
+    We show that denoising can act as an approximate projection onto learned data geometry, enabling principled constrained optimization with gradient-guided diffusion.
+    A workshop version was also selected for a spotlight talk at the IROS 2026 workshop
+    <a href="https://sites.google.com/bu.edu/hybridarchforautonomy/home?authuser=0">
+      Hybrid Architectures for Embodied Autonomy
+    </a>.
+    See you in Pittsburgh! 🎉
+  </span>
+
   <span style="color: #4F81BD; font-weight: 700;">Aug 2026</span>
   <span>
     🎤 I am excited to give a talk at the
@@ -213,4 +227,3 @@ Recent Updates
   </span>
 
 </div>
-
