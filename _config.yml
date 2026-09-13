@@ -12,16 +12,16 @@ title                    : "Runyu (Cathy) Zhang"
 title_separator          : "-"
 name                     : &name "Runyu (Cathy) Zhang"
 description              : &description "personal description"
-url                      : https://dianyu420376.github.io/runyu-cathy-zhang.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+url                      : https://runyu-cathy-zhang.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
-repository               : "DianYu420376/runyu-cathy-zhang.github.io"
+repository               : "runyu-cathy-zhang/runyu-cathy-zhang.github.io"
 
 # Site Author - The following control what appear as part of the author content on the side bar.
 #               If a field is blank the icon and link will not appear, otherwise it will be shown.
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "https://dianyu420376.github.io/runyu-cathy-zhang.github.io/images/cathy-profile.jpg"
+  avatar           : "https://runyu-cathy-zhang.github.io/images/cathy-profile.jpg"
   name             : "Runyu (Cathy) Zhang"
   pronouns         : # example: "she/her"  
   bio              : "Reinforcement learning, Control theory, Machine learning, Mutli-agent Systems"

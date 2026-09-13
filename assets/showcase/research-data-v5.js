@@ -502,9 +502,9 @@ const PROFILE = {
   name:"Runyu (Cathy) Zhang",
   role:"Postdoc for Engineering Excellence, MIT",
   email:"runyuzha@mit.edu",
-  site:"https://dianyu420376.github.io/runyu-cathy-zhang.github.io/",
+  site:"https://runyu-cathy-zhang.github.io/",
   scholar:"https://scholar.google.com/citations?hl=en&user=rLeH1NgAAAAJ",
-  cv:"https://dianyu420376.github.io/runyu-cathy-zhang.github.io/files/cathy-cv.pdf"
+  cv:"https://runyu-cathy-zhang.github.io/files/cathy-cv.pdf"
 };
 
 

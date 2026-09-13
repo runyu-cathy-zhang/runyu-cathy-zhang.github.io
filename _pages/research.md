@@ -13,7 +13,7 @@ author_profile: true
 Topic 1: Distributed Control of Network Systems
 ----
 <div style="float: left; margin-right: 20px; margin-bottom:20px">
-<img src="https://dianyu420376.github.io/runyu-cathy-zhang.github.io/images/distributed-control.png" alt="distributed-control-illustration" width="600px" height="auto">
+<img src="https://runyu-cathy-zhang.github.io/images/distributed-control.png" alt="distributed-control-illustration" width="600px" height="auto">
 </div>
 
 Limited by the sensing and communication capability, in many multi-agent systems, agents must decide their local actions based on local information. My research focuses on the distributed learning and control of network systems, which explores how multiple controllers, often geographically dispersed within a network, can collaboratively achieve global objectives by only sharing local information and relying on limited communication. By leveraging advanced techniques in control theory, optimization, and network theory, my research aims to enhance the efficiency and reliability of applications ranging from smart grids and automated transportation systems to large-scale industrial processes and sensor networks. Some specific topics that I am now particularly interested in includes
@@ -25,7 +25,7 @@ Limited by the sensing and communication capability, in many multi-agent systems
 
 
 <div style="display: flex; align-items: center;">
-    <img src="https://dianyu420376.github.io/runyu-cathy-zhang.github.io/images/SED-LQR.png" alt="SED-LQR" style="width: 300px; height: auto;">
+    <img src="https://runyu-cathy-zhang.github.io/images/SED-LQR.png" alt="SED-LQR" style="width: 300px; height: auto;">
     <div style="margin-left: 0px;">
         <ul>
             <li>
@@ -44,7 +44,7 @@ Limited by the sensing and communication capability, in many multi-agent systems
 
 
 <div style="display: flex; align-items: center;">
-    <img src="https://dianyu420376.github.io/runyu-cathy-zhang.github.io/images/drone-demo.gif" alt="drone gif" style="width: 250px; height: auto;">
+    <img src="https://runyu-cathy-zhang.github.io/images/drone-demo.gif" alt="drone gif" style="width: 250px; height: auto;">
     <div style="margin-left: 50px;">
         <ul>
             <li>
@@ -62,7 +62,7 @@ Topic 2: Multi-agent Reinforcement Learning
 
 
 <div style="float: left; margin-right: 20px;">
-    <img src="https://dianyu420376.github.io/runyu-cathy-zhang.github.io/images/multi-agent-RL.png" alt="Multi-agent-RL" style="width: 300px; height: auto;">
+    <img src="https://runyu-cathy-zhang.github.io/images/multi-agent-RL.png" alt="Multi-agent-RL" style="width: 300px; height: auto;">
 </div>
 
 Unlike single-agent RL, multi-agent RL deals with multiple agents interacting in a shared, dynamic setting. This introduces unique challenges such as the need for coordination, dealing with non-stationary environments due to other learning agents, and handling the complexity of strategic interactions. Studying multi-agent RL is crucial for advancing our understanding of systems where autonomous agents must learn to coexist, compete, or collaborate, such as in autonomous vehicle fleets, and complex resource management scenarios. The key question that I try to answer is how to encourage collaborative behavior in the face of these above challenges.
@@ -72,7 +72,7 @@ Unlike single-agent RL, multi-agent RL deals with multiple agents interacting in
 
 
 <div style="display: flex; align-items: center;">
-    <img src="https://dianyu420376.github.io/runyu-cathy-zhang.github.io/images/gradient-play-convergence.png" alt="gradient-play" style="width: 250px; height: auto;">
+    <img src="https://runyu-cathy-zhang.github.io/images/gradient-play-convergence.png" alt="gradient-play" style="width: 250px; height: auto;">
     <div style="margin-left: 50px;">
         <ul>
             <li>
@@ -93,7 +93,7 @@ Unlike single-agent RL, multi-agent RL deals with multiple agents interacting in
 
 
 <div style="display: flex; align-items: center;">
-    <img src="https://dianyu420376.github.io/runyu-cathy-zhang.github.io/images/PO-2p0s.png" alt="drone gif" style="width: 250px; height: auto;">
+    <img src="https://runyu-cathy-zhang.github.io/images/PO-2p0s.png" alt="drone gif" style="width: 250px; height: auto;">
     <div style="margin-left: 50px;">
         <ul>
             <li>
@@ -110,14 +110,14 @@ Framework and Faster Convergence</a>
 Topic 3:  Robust, Risk-sensitive and Safe Reinforcement Learning
 ----
 <div style="float: left; margin-right: 20px;">
-    <img src="https://dianyu420376.github.io/runyu-cathy-zhang.github.io/images/risk-sensitive-RL.png" alt="Multi-agent-RL" style="width: 450px; height: auto;">
+    <img src="https://runyu-cathy-zhang.github.io/images/risk-sensitive-RL.png" alt="Multi-agent-RL" style="width: 450px; height: auto;">
 </div>
 Robustness, risk-sensitivity and safety are desired properties for tasks such as online decision making and controlling dynamical systems, especially in the face of model uncertainty or estimation errors. I'm actively exploring the possibility of sample efficient practical algorithms that embody these desired properties. Further, I am also interested in extending these principles to multi-agent reinforcement learning (RL), where robustness is even more critical due to the added complexity of interactions among multiple agents. 
 
 ### Selected publications:
 
 <div style="display: flex; align-items: center;">
-    <img src="https://dianyu420376.github.io/runyu-cathy-zhang.github.io/images/robust-MDP.png" alt="drone gif" style="width: 250px; height: auto;">
+    <img src="https://runyu-cathy-zhang.github.io/images/robust-MDP.png" alt="drone gif" style="width: 250px; height: auto;">
     <div style="margin-left: 50px;">
         <ul>
             <li>
@@ -129,5 +129,4 @@ Sample Complexity</a>
         </ul>
     </div>
 </div>
-
 

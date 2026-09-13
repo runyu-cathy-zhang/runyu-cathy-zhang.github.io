@@ -5,4 +5,4 @@ title: ""
 author_profile: true
 ---
 
-Here's my [cv](https://dianyu420376.github.io/runyu-cathy-zhang.github.io/files/cathy-cv.pdf) (updated in June 2024).
+Here's my [cv](https://runyu-cathy-zhang.github.io/files/cathy-cv.pdf) (updated in June 2024).
