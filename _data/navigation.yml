@@ -20,7 +20,7 @@ main:
     url: /services/
 
   - title: "CV"
-    url: /files/cathy-cv.pdf
+    url: /files/cathy-cv.pdf?v=89f1596c
     
   # - title: "Portfolio"
   #   url: /portfolio/

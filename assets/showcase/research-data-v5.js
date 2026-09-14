@@ -504,7 +504,7 @@ const PROFILE = {
   email:"runyuzha@mit.edu",
   site:"https://runyu-cathy-zhang.github.io/",
   scholar:"https://scholar.google.com/citations?hl=en&user=rLeH1NgAAAAJ",
-  cv:"https://runyu-cathy-zhang.github.io/files/cathy-cv.pdf"
+  cv:"https://runyu-cathy-zhang.github.io/files/cathy-cv.pdf?v=89f1596c"
 };
 
 
