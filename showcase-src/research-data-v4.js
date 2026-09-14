@@ -491,8 +491,8 @@ const THEMES = [
       "What makes this more than an analogy is that <strong>the denoiser is already an approximate projection onto the data manifold</strong> — that is what training taught it to be. So the operator that played \"constraint residual\" in the explicit case, and \"estimated residual\" in the black-box case, is available for free in the regime where feasibility exists only as data.",
       "That completes the arc of the theme: <em>explicit and differentiable</em> — regulate the residual; <em>explicit but black-box</em> — estimate and regulate under noise; <em>implicit in data</em> — let the denoiser do the correcting. Our access to feasibility weakens at every step, and the job never changes."
     ],
-    figs:[{ svg:SVG_DIFFUSION, drawn:true, ongoing:true,
-      cap:"The mechanism, drawn rather than measured — this work is in progress. The task gradient leaves the manifold of trajectories the model learned to call feasible; the denoiser plays the role that an explicit constraint residual played earlier in the theme." }],
+    figs:[{ svg:SVG_DIFFUSION, drawn:true,
+      cap:"The mechanism, drawn rather than measured. The task gradient leaves the manifold of trajectories the model learned to call feasible; the denoiser plays the role that an explicit constraint residual played earlier in the theme." }],
     pubs:[
       {t:"Denoising as Projection: Constrained Optimization with Gradient-Guided Diffusion", v:"arXiv:2608.29507", u:"https://arxiv.org/abs/2608.29507"}
     ],

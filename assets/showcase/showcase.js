@@ -177,7 +177,7 @@ ${THEMES.map((th, ti) => `
 <section id="refs" class="plate sec-refs"><div class="sheet">
   <div class="plate-head"><span class="plate-no">References</span></div>
   <h2 class="plate-prop">Selected publications</h2>
-  <p class="plate-title">most recent first; the numeral marks the theme</p>
+  <p class="plate-title">in the order the argument introduces them; the numeral marks the theme</p>
   <ol id="reflist"></ol>
 </div></section>
 
