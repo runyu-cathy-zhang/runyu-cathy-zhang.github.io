@@ -1,0 +1,255 @@
+{
+ "title": "Collective intelligence, with guarantees",
+ "opening": [
+  {
+   "t": "Everything I work on circles around this one question.",
+   "s": "motivation_and_plate0.md:15-15"
+  },
+  {
+   "t": "It is a bit of a cliché for a researcher to tell you their question is important. But I'll say it anyway, because I think this one really is! It appears in many of the complex systems and infrastructures we interact with every day. For example:",
+   "s": "motivation_and_plate0.md:17-17"
+  }
+ ],
+ "examples": [
+  {
+   "name": "Warehouse robotics",
+   "text": "Hundreds of robots must operate safely and efficiently in the same shared space.",
+   "src": "motivation_and_plate0.md:25-25",
+   "nameSrc": "motivation_and_plate0.md:23-23",
+   "source": "<a href=\"https://www.aboutamazon.com/news/operations/amazon-robotics-robots-fulfillment-center\" target=\"_blank\">Amazon Robotics</a>",
+   "sourceSrc": "motivation_and_plate0.md:27-27",
+   "img": "figs/key_figs/warehouse-robot.gif"
+  },
+  {
+   "name": "Mobility and transit",
+   "text": "Travelers, transit operators, and municipalities all make their own decisions over the same transportation network.",
+   "src": "motivation_and_plate0.md:31-31",
+   "nameSrc": "motivation_and_plate0.md:29-29",
+   "source": null,
+   "sourceSrc": null,
+   "img": "figs/key_figs/mobility-system.png"
+  },
+  {
+   "name": "Power grids",
+   "text": "Generation, storage, and demand are tightly coupled and constantly changing.",
+   "src": "motivation_and_plate0.md:35-35",
+   "nameSrc": "motivation_and_plate0.md:33-33",
+   "source": "<a href=\"https://www.mdpi.com/2076-3417/16/7/3479\" target=\"_blank\">Hydrogen-powered data centres</a>",
+   "sourceSrc": "motivation_and_plate0.md:37-37",
+   "img": "figs/key_figs/power-grid.png"
+  },
+  {
+   "name": "Multi-agent AI",
+   "text": "AI agents increasingly need to communicate, reason, coordinate, and act together.",
+   "src": "motivation_and_plate0.md:41-41",
+   "nameSrc": "motivation_and_plate0.md:39-39",
+   "source": null,
+   "sourceSrc": null,
+   "img": "figs/key_figs/multi-LLM-agent.png"
+  }
+ ],
+ "unites": "These systems look very different on the surface, but underneath they share a common structure: many components interact through a shared environment, each has only a partial view of the system, their decisions affect one another, and they must operate despite imperfect models and hard physical or operational constraints. Across them, three challenges keep reappearing. They are what my research is organized around.",
+ "challenges": [
+  {
+   "name": "Limited communication and observation",
+   "text": "No agent sees the whole system, and communicating everything to everyone is often impossible.",
+   "src": "motivation_and_plate0.md:49-49",
+   "nameSrc": "motivation_and_plate0.md:47-47"
+  },
+  {
+   "name": "Strategic interaction and misaligned incentives",
+   "text": "When agents pursue their own objectives, individually rational decisions need not produce a desirable collective outcome.",
+   "src": "motivation_and_plate0.md:53-53",
+   "nameSrc": "motivation_and_plate0.md:51-51"
+  },
+  {
+   "name": "Imperfect models and hard constraints",
+   "text": "Decisions must remain reliable under imperfect models while still satisfying hard safety and feasibility constraints.",
+   "src": "motivation_and_plate0.md:57-57",
+   "nameSrc": "motivation_and_plate0.md:55-55"
+  }
+ ],
+ "method": "My work sits at the intersection of classical control theory, game theory, and optimization, together with newer tools such as reinforcement learning, diffusion models, and language models. I strongly believe in being problem-first rather than tool-first: which hammer to use should depend on the problem.",
+ "overview": {
+  "heading": "Overview & Roadmap",
+  "intro": "My research is organized around three recurring challenges in complex multi-agent systems, with each motivating a major research direction:",
+  "map": [
+   {
+    "challenge": "Limited communication and observation",
+    "direction": "Control and Learning for Networked Systems",
+    "challengeSrc": "motivation_and_plate0.md:74-74",
+    "directionSrc": "motivation_and_plate0.md:75-75"
+   },
+   {
+    "challenge": "Strategic interaction and misaligned incentives",
+    "direction": "Multi-Agent Learning through a Game-Theoretic Lens",
+    "challengeSrc": "motivation_and_plate0.md:77-77",
+    "directionSrc": "motivation_and_plate0.md:78-78"
+   },
+   {
+    "challenge": "Imperfect models and hard constraints",
+    "direction": "Robust and Feasible Decision-Making under Uncertainty",
+    "challengeSrc": "motivation_and_plate0.md:80-80",
+    "directionSrc": "motivation_and_plate0.md:81-81"
+   }
+  ],
+  "boxes": [
+   {
+    "name": "Control and Learning for Networked Systems",
+    "text": "Many complex systems are naturally embedded in a network or graph structure. My research asks how we can leverage this structure to design control and learning algorithms that are more scalable, communication-efficient, and data-efficient.",
+    "src": "motivation_and_plate0.md:87-87"
+   },
+   {
+    "name": "Multi-Agent Learning through a Game-Theoretic Lens",
+    "text": "In complex multi-agent systems, agents may have different incentives. My research studies how agents can reach efficient equilibria efficiently, and, when multiple equilibria exist, how we can steer learning toward outcomes that are better for the system as a whole.",
+    "src": "motivation_and_plate0.md:91-91"
+   },
+   {
+    "name": "Robust and Feasible Decision-Making under Uncertainty",
+    "text": "Our decisions need to remain reliable despite modeling errors and uncertainty, while also satisfying operational, feasibility, and safety constraints. These requirements become especially challenging in data-driven settings. My research aims to incorporate them into learning and decision-making in a principled way, with theoretical guarantees.",
+    "src": "motivation_and_plate0.md:95-95"
+   }
+  ]
+ },
+ "themes": [
+  {
+   "name": "Control and Learning for Networked Systems",
+   "problemHtml": "<p data-src=\"plate1.md:3-3\"><strong>Problem:</strong> Large networked systems are globally coupled, while sensing, communication, and computation are inherently local. In practice, no agent has access to the entire system, and fully centralized solutions quickly become difficult to implement or learn as the network grows. This tension between <strong>global performance and local information</strong> is where much of my work in networked control and learning begins.</p><p data-src=\"plate1.md:5-5\">When information is inherently local, a natural approach is distributed control, where each agent makes decisions using only the information available within its local neighborhood.</p>",
+   "steps": [
+    {
+     "q": "When can distributed control be nearly as good as centralized control?",
+     "kind": null,
+     "qSrc": "plate1.md:7-7",
+     "brief": "We find that the optimal controller is already approximately local, with a provable bound on the loss from localizing it.",
+     "briefSrc": "plate1.md:9-9",
+     "remainsSrc": "plate1.md:20-20",
+     "html": "<p data-src=\"plate1.md:11-11\">Distributed control has a long history, however, much of the literature focuses on finding the best controller within a prescribed distributed class. But a more fundamental question has received comparatively less attention: <strong>how much performance do we lose relative to the globally optimal centralized controller?</strong></p><p data-src=\"plate1.md:13-13\"><strong>Finding:</strong> In <a href=\"https://arxiv.org/abs/2209.14376\" target=\"_blank\"><em>On the Optimal Control of Network LQR with Spatially-Exponential Decaying Structure</em></a>, we show that when the underlying networked dynamics exhibit suitable spatial decay, the globally optimal LQR controller itself inherits an approximately spatially decaying structure. As a result, it can be well approximated by a localized controller, with a rigorous bound on the resulting performance loss.</p><figure class=\"pfig\" data-fig=\"sed_lqr_spatial_decay.png\" data-src=\"plate1.md:15-15\"><img src=\"figs/key_figs/sed_lqr_spatial_decay.png\" alt=\"\" data-cap=\"\" data-fig=\"sed_lqr_spatial_decay.png\"></figure><p data-src=\"plate1.md:18-18\">What I find most interesting about this result is that locality is not merely a restriction we impose to make control implementable. <strong>Under the right system structure, locality is already present in the globally optimal solution.</strong></p>",
+     "remains": "If the optimal solution itself has approximate locality, can we exploit this structure not only for decentralized control, but also to make learning more scalable?",
+     "figs": []
+    },
+    {
+     "q": "Can locality be exploited to make learning and control scalable?",
+     "kind": null,
+     "qSrc": "plate1.md:24-24",
+     "brief": "Locality carries over to value functions, giving learning algorithms that scale with local interactions rather than network size.",
+     "briefSrc": "plate1.md:26-26",
+     "remainsSrc": "plate1.md:40-40",
+     "html": "<p data-src=\"plate1.md:28-28\">Building on our work from the previous section, once we know that the influence of distant parts of the network decays, it provides the potential just learn local policies that already captures what matters instead of trying to learn a fully global one.</p><p data-src=\"plate1.md:30-30\"><strong>Approach:</strong> Use this decay structure to build local representations and learning algorithms whose complexity depends primarily on local interactions rather than the full network size.</p><p data-src=\"plate1.md:32-32\">This idea leads to several related works:</p><ul data-src=\"plate1.md:34-34\"><li><a href=\"https://arxiv.org/abs/2401.16183\" target=\"_blank\"><em>Scalable Reinforcement Learning for Linear-Quadratic Control of Networks</em></a> shows that locality also propagates to individual value and Q-functions, and develops a local actor-critic algorithm for learning distributed controllers.</li></ul><ul data-src=\"plate1.md:36-36\"><li><a href=\"https://arxiv.org/abs/2410.17221\" target=\"_blank\"><em>Scalable Spectral Representations for Multi-Agent Reinforcement Learning in Network MDPs</em></a> further extend our results to the more complex setting with nonlinear dynamics, where it uses exponential decay in network dynamics to construct local spectral representations of Q-functions, leading to scalable learning for continuous-state/action network MDPs with end-to-end guarantees.</li></ul><ul data-src=\"plate1.md:38-38\"><li><a href=\"https://arxiv.org/abs/1912.09135\" target=\"_blank\"><em>Distributed Reinforcement Learning for Decentralized Linear Quadratic Control: A Derivative-Free Policy Optimization Approach</em></a> approaches the same challenge from a complementary direction, learning local controllers through decentralized zeroth-order policy optimization and consensus using only local information.</li></ul>",
+     "remains": "Spatial decay is only one form of useful structure. Real networked systems often contain other kinds of sparsity, communication structure, factorization, temporal structure, or physical structure. Can those also be turned into algorithmic efficiency?",
+     "figs": []
+    },
+    {
+     "q": "What other structures can be translated into algorithmic efficiency?",
+     "kind": "application",
+     "qSrc": "plate1.md:44-44",
+     "brief": "Graph structure, factorization and multiple timescales each convert into algorithmic efficiency.",
+     "briefSrc": "plate1.md:46-46",
+     "remainsSrc": null,
+     "html": "<p data-src=\"plate1.md:48-48\">Spatial locality is only one example. Across different applications, I have explored how other forms of structure can similarly guide algorithm design.</p><p data-src=\"plate1.md:50-50\"><strong>Graph structure → exploration and coverage.</strong></p><div class=\"pfigpair\"><figure class=\"pfig\" data-fig=\"graph-bandit.gif\" data-src=\"plate1.md:52-52\"><img src=\"figs/key_figs/graph-bandit.gif\" alt=\"\" data-cap=\"\" data-fig=\"graph-bandit.gif\"></figure><figure class=\"pfig\" data-fig=\"coverage-control.gif\" data-src=\"plate1.md:53-53\"><img src=\"figs/key_figs/coverage-control.gif\" alt=\"\" data-cap=\"\" data-fig=\"coverage-control.gif\"></figure></div><p data-src=\"plate1.md:55-55\">In <a href=\"https://arxiv.org/abs/2401.10383\" target=\"_blank\"><em>Cooperative Multi-Agent Graph Bandits</em></a>, we exploit communication and mobility structure to design cooperative exploration algorithms whose performance reflects the underlying graph. In <a href=\"https://arxiv.org/abs/2404.05995\" target=\"_blank\"><em>Multi-Agent Coverage Control with Transient Behavior Consideration</em></a>, we further account for how agents physically move through the environment while learning, rather than optimizing only their eventual coverage configuration.</p><p data-src=\"plate1.md:57-57\"><strong>Factorization + temporal structure → scalable multi-agent path finding.</strong></p><div class=\"pfigpair\"><figure class=\"pfig\" data-fig=\"fico_grouping.png\" data-src=\"plate1.md:59-59\"><img src=\"figs/key_figs/fico_grouping.png\" alt=\"\" data-cap=\"\" data-fig=\"fico_grouping.png\"></figure><figure class=\"pfig\" data-fig=\"fico-result.gif\" data-src=\"plate1.md:60-60\"><img src=\"figs/key_figs/fico-result.gif\" alt=\"\" data-cap=\"\" data-fig=\"fico-result.gif\"></figure></div><p data-src=\"plate1.md:62-62\">My recent MAPF work exploits problem factorization and adaptive planning horizons to coordinate large robot fleets in closed loop: <a href=\"https://arxiv.org/abs/2511.13961\" target=\"_blank\">FICO</a>, <a href=\"https://arxiv.org/abs/2602.12024\" target=\"_blank\">Adaptive-Horizon CBS</a>, and <a href=\"https://arxiv.org/abs/2604.00428\" target=\"_blank\">Certificate-Driven MAPF</a>.</p><p data-src=\"plate1.md:64-65\"><strong>Multiple timescales → building control.</strong><br>In our work on <a href=\"https://www.sciencedirect.com/science/article/pii/S0360132323005462\" target=\"_blank\">natural-ventilation control</a>, we combine learned dynamics at multiple timescales, online adaptation, and MPC for energy-efficient building operation.</p><p data-src=\"plate1.md:67-68\"><strong>Network structure → power-grid topology control (ongoing).</strong><br>I am exploring how grid topology and local interactions can determine what information agents need for scalable multi-agent learning and control.</p><p data-src=\"plate1.md:70-70\">Across these applications, the recurring idea is simple:</p><p data-src=\"plate1.md:72-72\"><strong>identify useful structure in the system, then turn it into algorithmic efficiency.</strong></p>",
+     "remains": null,
+     "figs": []
+    }
+   ]
+  },
+  {
+   "name": "Multi-Agent Learning through a Game-Theoretic Lens",
+   "problemHtml": "<p data-src=\"plate2.md:3-3\"><strong>Problem:</strong> Multiple agents learn and make decisions independently, often with different or even competing objectives, while their policies interact through a shared environment. As a result, individually rational behavior does not necessarily lead to a desirable collective outcome. The challenge is therefore not only whether decentralized learning converges, but <strong>what it converges to, how good the resulting equilibrium is, and how learning can be steered toward better coordinated outcomes.</strong></p>",
+   "steps": [
+    {
+     "q": "What do decentralized MARL algorithms actually converge to?",
+     "kind": null,
+     "qSrc": "plate2.md:5-5",
+     "brief": "We show that first-order stationary policies and Nash equilibria are equivalent.",
+     "briefSrc": "plate2.md:7-7",
+     "remainsSrc": "plate2.md:24-24",
+     "html": "<p data-src=\"plate2.md:9-9\">There is already a rich theory of convergence in MARL, but much of it stops at showing convergence to first-order stationary points. So my starting question was: <strong>what do these stationary points actually represent?</strong></p><p data-src=\"plate2.md:11-11\"><strong>Finding:</strong> In <a href=\"https://arxiv.org/abs/2106.00198\" target=\"_blank\"><em>Gradient Play in Stochastic Games: Stationary Points, Convergence, and Sample Complexity</em></a>, we show that, under direct policy parameterization, first-order stationary policies and Nash equilibria are equivalent.</p><figure class=\"pfig\" data-fig=\"stationary_point_NE_equivalence.png\" data-src=\"plate2.md:13-13\"><img src=\"figs/key_figs/stationary_point_NE_equivalence.png\" alt=\"\" data-cap=\"\" data-fig=\"stationary_point_NE_equivalence.png\"></figure><p data-src=\"plate2.md:16-16\">This was the starting point for me to realize that game-theoretic concepts arise naturally in MARL. Once multiple agents independently optimize decentralized policies while interacting through a shared environment, Nash equilibrium becomes a natural solution concept, even when the underlying problem is cooperative.</p><p data-src=\"plate2.md:18-18\">From there, we studied how this picture changes under different policy parameterizations and game structures. For example:</p><ul data-src=\"plate2.md:20-20\"><li><a href=\"https://arxiv.org/abs/2202.00872\" target=\"_blank\"><em>On the Global Convergence Rates of Decentralized Softmax Gradient Play in Markov Potential Games</em></a> studies the more subtle softmax parameterization, where zero-gradient policies need not be Nash equilibria, and establishes finite-time convergence guarantees for decentralized gradient and natural-gradient play.</li></ul><ul data-src=\"plate2.md:22-22\"><li><a href=\"https://arxiv.org/abs/2206.02640\" target=\"_blank\"><em>Policy Optimization for Markov Games: Unified Framework and Faster Convergence</em></a> develops a broader framework for policy optimization in Markov games, with faster convergence guarantees for zero-sum games and extensions to general-sum games.</li></ul>",
+     "remains": "Convergence to a Nash equilibrium does not by itself imply good system-level performance. There can be many equilibria, and their quality can differ substantially.",
+     "figs": []
+    },
+    {
+     "q": "How good or bad can an equilibrium be?",
+     "kind": null,
+     "qSrc": "plate2.md:28-28",
+     "brief": "We established price-of-anarchy bound for Markov games, providing a rigorous characterization of the worst-case quality of Nash equilibrium.",
+     "briefSrc": "plate2.md:30-30",
+     "remainsSrc": "plate2.md:41-41",
+     "html": "<p data-src=\"plate2.md:32-32\">Once equilibrium becomes the relevant solution concept, the next natural question is how its performance compares with the globally desirable outcome.</p><figure class=\"pfig\" data-fig=\"poa_figure.png\" data-src=\"plate2.md:35-35\"><img src=\"figs/key_figs/poa_figure.png\" alt=\"\" data-cap=\"\" data-fig=\"poa_figure.png\"></figure><p data-src=\"plate2.md:37-37\"><strong>Finding:</strong> In <a href=\"https://arxiv.org/abs/2304.03840\" target=\"_blank\"><em>Markov Games with Decoupled Dynamics: Price of Anarchy and Sample Complexity</em></a>, we extend the price-of-anarchy perspective to finite-horizon Markov games with decoupled dynamics and coupled rewards, providing a rigorous characterization of the worst-case quality of decentralized equilibria.</p><p data-src=\"plate2.md:39-39\">This turns a convergence result into a performance question: even if decentralized learning converges, what can we actually guarantee about the resulting system-level performance?</p>",
+     "remains": "Price of anarchy tells us how bad an equilibrium can be, but it does not tell us how to avoid undesirable equilibria or systematically reach better ones.",
+     "figs": []
+    },
+    {
+     "q": "Can we systematically reach better equilibria?",
+     "kind": null,
+     "qSrc": "plate2.md:45-45",
+     "brief": "We develop a framework for equilibrium selection in multi-agent RL.",
+     "briefSrc": "plate2.md:47-47",
+     "remainsSrc": "plate2.md:55-55",
+     "html": "<p data-src=\"plate2.md:49-49\">This led to my work on <strong>equilibrium selection</strong>.</p><p data-src=\"plate2.md:51-51\"><strong>Approach:</strong> In <a href=\"https://arxiv.org/abs/2406.08844\" target=\"_blank\"><em>Equilibrium Selection for Multi-agent Reinforcement Learning: A Unified Framework</em></a>, we borrow ideas from equilibrium selection in static normal-form games, especially stochastic stability, and develop a framework for transferring these equilibrium-selection mechanisms to stochastic games.</p><p data-src=\"plate2.md:53-53\">The goal is to move beyond simply proving convergence and instead understand how learning dynamics can favor equilibria with desirable properties.</p>",
+     "remains": "The framework gives a principled theoretical mechanism for equilibrium selection, but the resulting selection dynamics can be slow in practice. We would like more direct and efficient ways to discover desirable coordinated behaviors rather than relying on slow asymptotic selection.",
+     "figs": []
+    },
+    {
+     "q": "Can we discover and select good coordinated behaviors more efficiently?",
+     "kind": null,
+     "qSrc": "plate2.md:59-59",
+     "brief": "Leveraging optimism and diversity",
+     "briefSrc": "plate2.md:61-61",
+     "remainsSrc": null,
+     "html": "<p data-src=\"plate2.md:63-63\">This motivates my more recent work on algorithmic mechanisms that shape the behaviors discovered during learning.</p><ul data-src=\"plate2.md:65-65\"><li><strong>Optimism / risk-seeking:</strong> In <a href=\"https://arxiv.org/abs/2509.24047\" target=\"_blank\"><em>Optimism as Risk-Seeking in Multi-Agent Reinforcement Learning</em></a>, we interpret optimism through risk-seeking objectives and develop decentralized optimistic actor-critic algorithms. The idea is that optimism can encourage agents to explore coordinated outcomes that risk-neutral learning may fail to reach.</li></ul><ul data-src=\"plate2.md:67-67\"><li><strong>Diversity (ongoing):</strong> Can we deliberately discover and maintain qualitatively different coordinated behaviors / equilibria instead of collapsing to one solution?</li></ul><p data-src=\"plate2.md:71-71\">So the question has gradually evolved from <strong>“Does MARL converge?”</strong> to <strong>“Can MARL efficiently discover and select high-quality coordinated behaviors?”</strong></p>",
+     "remains": null,
+     "figs": []
+    },
+    {
+     "q": "Transportation Operations and System Design",
+     "kind": "application",
+     "qSrc": "plate2.md:73-73",
+     "brief": "",
+     "briefSrc": null,
+     "remainsSrc": null,
+     "html": "<p data-src=\"plate2.md:75-75\">Transportation systems provide a natural setting for these questions because different regions, operators, and mobility services make their own decisions while sharing infrastructure, users, and congestion.</p><p data-src=\"plate2.md:77-77\">In <a href=\"https://arxiv.org/abs/2508.12059\" target=\"_blank\"><em>Co-Investment with Payoff-Sharing Mechanism for Cooperative Decision-Making in Network Design Games</em></a>, we study strategic interactions among interconnected network operators. The framework combines a non-cooperative network-design game with cooperative mechanisms for <strong>co-investment and payoff sharing</strong>, asking when independently operated subnetworks can find mutually beneficial opportunities to cooperate while preserving their individual incentives.</p><figure class=\"pfig\" data-fig=\"coinv_framework.png\" data-src=\"plate2.md:79-79\"><img src=\"figs/key_figs/coinv_framework.png\" alt=\"\" data-cap=\"\" data-fig=\"coinv_framework.png\"></figure><p data-src=\"plate2.md:82-82\">A related but different question is how to induce a desired system-level outcome when operators remain strategic. In <a href=\"https://arxiv.org/abs/2605.18687\" target=\"_blank\"><em>Implementation-Based Incentive Design for Autonomous Mobility-on-Demand and Transit Systems</em></a>, we take an implementation perspective: rather than searching for a policy and then predicting which equilibrium it induces, we start from a desirable target operating profile and ask <strong>what incentive is needed to make unilateral deviations unattractive</strong>. This leads to an implementation-based framework for coordinating strategic AMoD and public-transit operators under endogenous passenger choices.</p><figure class=\"pfig\" data-fig=\"amod_framework.png\" data-src=\"plate2.md:84-84\"><img src=\"figs/key_figs/amod_framework.png\" alt=\"\" data-cap=\"\" data-fig=\"amod_framework.png\"></figure>",
+     "remains": null,
+     "figs": []
+    }
+   ]
+  },
+  {
+   "name": "Robust and Feasible Decision-Making under Uncertainty",
+   "problemHtml": "<p data-src=\"plate3.md:3-3\"><strong>Problem:</strong> Real systems must make decisions with imperfect models and incomplete knowledge of the environment, while also satisfying physical, operational, and safety constraints. Model errors can make an otherwise good decision unreliable, and some requirements cannot simply be traded against performance. The challenge is therefore twofold: <strong>how do we remain robust when our model is wrong, and how do we preserve feasibility when constraints must be satisfied?</strong></p>",
+   "steps": [
+    {
+     "q": "How should we make decisions when the model is imperfect?",
+     "kind": null,
+     "qSrc": "plate3.md:5-5",
+     "brief": "We develop efficient and robust offline reinforcement-learning algorithms for decision-making under model uncertainty.",
+     "briefSrc": "plate3.md:7-7",
+     "remainsSrc": "plate3.md:13-13",
+     "html": "<p data-src=\"plate3.md:9-9\">My starting point was <strong>robust decision-making</strong>: if we do not fully trust one nominal model of the environment, how should that uncertainty change the way we optimize a policy?</p><p data-src=\"plate3.md:11-11\"><strong>Finding:</strong> In <a href=\"https://arxiv.org/abs/2306.11626\" target=\"_blank\"><em>Soft Robust MDPs and Risk-Sensitive MDPs: Equivalence, Policy Gradient, and Sample Complexity</em></a>, we establish an equivalence between a class of soft robust MDPs and risk-sensitive MDPs. This connection allows us to solve robust RL through risk-sensitive formulations, leading to <strong>more efficient algorithms and sample-complexity guarantees under weaker assumptions than prior robust RL approaches</strong>. In particular, the resulting methods avoid repeatedly solving costly inner robust-optimization problems while retaining a principled treatment of model uncertainty.</p>",
+     "remains": "Robustness protects performance against model uncertainty. But many physical systems also impose requirements that cannot simply be traded against performance: dynamics must hold, safety limits must be respected, and trajectories must remain feasible.",
+     "figs": []
+    },
+    {
+     "q": "How do we optimize performance while preserving feasibility?",
+     "kind": null,
+     "qSrc": "plate3.md:17-17",
+     "brief": "We develop control-inspired constrained optimization methods that actively regulate feasibility while optimizing performance.",
+     "briefSrc": "plate3.md:19-19",
+     "remainsSrc": "plate3.md:40-40",
+     "html": "<p data-src=\"plate3.md:21-21\">The answer depends on <strong>what access we have to the feasible set</strong>.</p><figure class=\"pfig\" data-fig=\"FOFL.png\" data-src=\"plate3.md:23-23\"><img src=\"figs/key_figs/FOFL.png\" alt=\"\" data-cap=\"\" data-fig=\"FOFL.png\"></figure><p data-src=\"plate3.md:25-26\"><strong>Differentiable constraints → control-theoretic constrained optimization.</strong><br>When constraints are explicitly known and differentiable, we can view constrained optimization as a control problem: design the optimization dynamics so that constraint violation is regulated to zero while the objective decreases. In <a href=\"https://arxiv.org/abs/2503.12665\" target=\"_blank\"><em>Constrained Optimization From a Control Perspective via Feedback Linearization</em></a>, we use feedback linearization to construct such updates with a prescribed feasibility decay rate, yielding convergence guarantees to KKT points and a principled alternative to penalty-based constraint handling.</p><p data-src=\"plate3.md:29-29\">Our work also extends to machine learning. In <a href=\"https://arxiv.org/abs/2605.08408\" target=\"_blank\"><em>AdamFLIP</em></a>, we apply these ideas to hard-constrained physics-informed neural network training, achieving better optimization performance while enforcing constraints directly rather than through penalty terms.</p><figure class=\"pfig\" data-fig=\"ZOFL.png\" data-src=\"plate3.md:31-31\"><img src=\"figs/key_figs/ZOFL.png\" alt=\"\" data-cap=\"\" data-fig=\"ZOFL.png\"></figure><p data-src=\"plate3.md:35-36\"><strong>Black-box constraints → zeroth-order constrained optimization.</strong><br>Sometimes we can evaluate a constraint but cannot differentiate it. Hence, the required derivatives must be estimated from function queries. These zeroth-order estimates can be inaccurate, making feasibility especially challenging: errors in the estimated constraint gradients directly affect the correction used to enforce the constraints.</p><p data-src=\"plate3.md:38-38\">In <a href=\"https://arxiv.org/abs/2509.24056\" target=\"_blank\"><em>Zeroth-Order Constrained Optimization via Feedback Linearization</em></a>, we extend the control-theoretic formulation to this setting and study how feasibility can still be regulated despite gradient-estimation error. Our later work, <a href=\"https://arxiv.org/abs/2604.02202\" target=\"_blank\"><em>Random-Subspace SQP</em></a>, provides a complementary optimization perspective on this idea: the zeroth-order update can be understood through optimization over randomly sampled low-dimensional subspaces. This interpretation leads to a more general algorithmic framework and stronger convergence guarantees, while retaining the computational advantage of avoiding full-dimensional derivative estimation.</p>",
+     "remains": "Both settings still assume that feasibility is explicitly defined. But in increasingly data-driven systems, we may only have examples of feasible behavior, with no constraint equation available at all.",
+     "figs": []
+    },
+    {
+     "q": "How do we optimize when feasibility is represented only through data?",
+     "kind": null,
+     "qSrc": "plate3.md:44-44",
+     "brief": "Diffusion models can encode feasible behavior directly from data, allowing optimization over an implicitly learned feasible set.",
+     "briefSrc": "plate3.md:46-46",
+     "remainsSrc": null,
+     "html": "<p data-src=\"plate3.md:48-48\">This is the setting I am studying in <strong>diffusion-based planning</strong>.</p><p data-src=\"plate3.md:50-50\">A diffusion model trained on feasible trajectories can represent complex feasible behavior directly from data, even when no explicit description of the feasible trajectory set is available. This makes diffusion a natural model of feasibility for planning and decision-making.</p><figure class=\"pfig\" data-fig=\"gradient-guidance.png\" data-src=\"plate3.md:52-52\"><img src=\"figs/key_figs/gradient-guidance.png\" alt=\"\" data-cap=\"\" data-fig=\"gradient-guidance.png\"></figure><p data-src=\"plate3.md:54-54\">The challenge is that standard gradient guidance optimizes the task objective in the ambient trajectory space. As a result, the gradient can point away from the learned feasible set, so improving the objective may simultaneously destroy dynamic feasibility.</p><p data-src=\"plate3.md:57-57\"><strong>Approach:</strong> Our work on <strong>Denoising-Corrected Gradient Guidance (DCG)</strong> views diffusion planning as constrained optimization over an implicitly learned feasible set. The key insight is that the denoiser behaves like an approximate projection onto the data support: the gradient step improves the objective, while denoising corrects the trajectory back toward feasible behavior. This leads to a simple guided-diffusion algorithm with finite-time convergence guarantees under linear, convex, and smooth-manifold geometries.</p><div class=\"pfigpair\"><figure class=\"pfig\" data-fig=\"DCG-result.jpg\" data-src=\"plate3.md:59-59\"><img src=\"figs/key_figs/DCG-result.jpg\" alt=\"\" data-cap=\"\" data-fig=\"DCG-result.jpg\"></figure><figure class=\"pfig\" data-fig=\"DCG-result-2.jpg\" data-src=\"plate3.md:60-60\"><img src=\"figs/key_figs/DCG-result-2.jpg\" alt=\"\" data-cap=\"\" data-fig=\"DCG-result-2.jpg\"></figure></div><figure class=\"pfig\" data-fig=\"DCG-result-legend.jpg\" data-src=\"plate3.md:62-62\"><img src=\"figs/key_figs/DCG-result-legend.jpg\" alt=\"\" data-cap=\"\" data-fig=\"DCG-result-legend.jpg\"></figure>",
+     "remains": null,
+     "figs": []
+    }
+   ]
+  }
+ ]
+}

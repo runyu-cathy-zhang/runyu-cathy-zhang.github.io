@@ -144,6 +144,10 @@ include:
   - _pages
   - files
 exclude:
+  # The research showcase's sources and its visual editor. build.py turns
+  # these into assets/showcase/ and _includes/showcase.html; the folder
+  # itself is not part of the published site.
+  - showcase-src
   - "*.sublime-project"
   - "*.sublime-workspace"
   - .asset-cache

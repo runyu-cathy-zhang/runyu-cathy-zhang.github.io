@@ -1,0 +1,226 @@
+{
+ "vars": {
+  "--p0-fig-col": "278px",
+  "--wrap-w": "44%"
+ },
+ "figures": {
+  "poa_figure.png": {
+   "wrap": "right",
+   "wrapWidth": 28,
+   "align": "center",
+   "height": 83,
+   "ratio": "natural",
+   "fit": "contain",
+   "radius": 0,
+   "border": "off",
+   "pad": 0,
+   "sizeBy": "height",
+   "widthPct": 60
+  },
+  "FOFL.png": {
+   "wrap": "right",
+   "wrapWidth": 34,
+   "align": "center",
+   "height": 100,
+   "fit": "contain",
+   "radius": 0,
+   "border": "off",
+   "pad": 0
+  },
+  "ZOFL.png": {
+   "wrap": "right",
+   "wrapWidth": 34,
+   "align": "center",
+   "height": 100,
+   "fit": "contain",
+   "radius": 0,
+   "border": "off",
+   "pad": 0
+  },
+  "gradient-guidance.png": {
+   "wrap": "right",
+   "wrapWidth": 28,
+   "align": "center",
+   "height": 140,
+   "fit": "cover",
+   "radius": 0,
+   "border": "off",
+   "pad": 0
+  },
+  "sed_lqr_spatial_decay.png": {
+   "align": "center",
+   "height": 178,
+   "fit": "contain",
+   "radius": 0,
+   "border": "off",
+   "pad": 0,
+   "ratio": "natural",
+   "wrap": "none",
+   "wrapWidth": 44,
+   "sizeBy": "height",
+   "widthPct": 60
+  },
+  "fico-result.gif": {
+   "align": "center",
+   "height": 191,
+   "fit": "contain",
+   "radius": 0,
+   "border": "off",
+   "pad": 7
+  },
+  "graph-bandit.gif": {
+   "align": "center",
+   "height": 203,
+   "fit": "contain",
+   "radius": 0,
+   "border": "off",
+   "pad": 0
+  },
+  "coverage-control.gif": {
+   "align": "center",
+   "height": 164,
+   "fit": "contain",
+   "radius": 0,
+   "border": "off",
+   "pad": 9
+  },
+  "fico_grouping.png": {
+   "align": "center",
+   "height": 170,
+   "fit": "contain",
+   "radius": 0,
+   "border": "off",
+   "pad": 13
+  },
+  "coinv_framework.png": {
+   "align": "center",
+   "height": 169,
+   "fit": "contain",
+   "radius": 0,
+   "border": "off",
+   "pad": 1,
+   "ratio": "natural",
+   "wrap": "none",
+   "wrapWidth": 44,
+   "sizeBy": "height",
+   "widthPct": 60
+  },
+  "amod_framework.png": {
+   "align": "center",
+   "height": 179,
+   "fit": "contain",
+   "radius": 0,
+   "border": "off",
+   "pad": 0
+  },
+  "multi-LLM-agent.png": {
+   "align": "center",
+   "ratio": "4/3",
+   "fit": "cover",
+   "radius": 0,
+   "border": "off",
+   "pad": 7
+  },
+  "DCG-result-2.jpg": {
+   "align": "center",
+   "height": 124,
+   "fit": "contain",
+   "radius": 0,
+   "border": "on",
+   "pad": 8
+  },
+  "DCG-result-legend.jpg": {
+   "align": "center",
+   "sizeBy": "width",
+   "widthPct": 63,
+   "fit": "contain",
+   "radius": 0,
+   "border": "off",
+   "pad": 0,
+   "ratio": "natural",
+   "wrap": "none",
+   "wrapWidth": 44
+  },
+  "warehouse-robot.gif": {
+   "ratio": "natural",
+   "fit": "cover",
+   "radius": 0,
+   "align": "center",
+   "wrap": "none",
+   "wrapWidth": 44,
+   "sizeBy": "height",
+   "widthPct": 60,
+   "border": "off",
+   "pad": 0
+  },
+  "mobility-system.png": {
+   "ratio": "natural",
+   "fit": "contain",
+   "radius": 0,
+   "align": "center",
+   "wrap": "none",
+   "wrapWidth": 44,
+   "sizeBy": "height",
+   "widthPct": 60,
+   "border": "off",
+   "pad": 0
+  },
+  "power-grid.png": {
+   "ratio": "natural",
+   "fit": "contain",
+   "radius": 0,
+   "align": "center",
+   "wrap": "none",
+   "wrapWidth": 44,
+   "sizeBy": "height",
+   "widthPct": 60,
+   "border": "off",
+   "pad": 0
+  },
+  "theme1-illustration.png": {
+   "height": 188,
+   "ratio": "4/3",
+   "fit": "contain",
+   "radius": 0,
+   "border": "off",
+   "pad": 0
+  },
+  "theme2-illustration.png": {
+   "height": 188,
+   "ratio": "4/3",
+   "fit": "contain",
+   "radius": 0,
+   "border": "off",
+   "pad": 0
+  },
+  "theme3-illustration.png": {
+   "height": 206,
+   "ratio": "4/3",
+   "fit": "contain",
+   "radius": 0,
+   "border": "off",
+   "pad": 0
+  },
+  "stationary_point_NE_equivalence.png": {
+   "height": 152,
+   "fit": "contain",
+   "radius": 0,
+   "border": "off",
+   "pad": 0,
+   "ratio": "natural",
+   "align": "center",
+   "wrap": "none",
+   "wrapWidth": 44,
+   "sizeBy": "height",
+   "widthPct": 60
+  },
+  "DCG-result.jpg": {
+   "height": 124,
+   "fit": "contain",
+   "radius": 0,
+   "border": "on",
+   "pad": 8
+  }
+ },
+ "hidden": []
+}
