@@ -54,7 +54,7 @@ A diffusion model trained on feasible trajectories can represent complex feasibl
 The challenge is that standard gradient guidance optimizes the task objective in the ambient trajectory space. As a result, the gradient can point away from the learned feasible set, so improving the objective may simultaneously destroy dynamic feasibility.
 
 
-**Approach:** Our work on **Denoising-Corrected Gradient Guidance (DCG)** views diffusion planning as constrained optimization over an implicitly learned feasible set. The key insight is that the denoiser behaves like an approximate projection onto the data support: the gradient step improves the objective, while denoising corrects the trajectory back toward feasible behavior. This leads to a simple guided-diffusion algorithm with finite-time convergence guarantees under linear, convex, and smooth-manifold geometries.
+**Approach:** Our work on [Denoising-Corrected Gradient Guidance (DCG)](https://arxiv.org/abs/2608.29507) views diffusion planning as constrained optimization over an implicitly learned feasible set. The key insight is that the denoiser behaves like an approximate projection onto the data support: the gradient step improves the objective, while denoising corrects the trajectory back toward feasible behavior. This leads to a simple guided-diffusion algorithm with finite-time convergence guarantees under linear, convex, and smooth-manifold geometries.
 
 ![](figs/key_figs/DCG-result.jpg)
 ![](figs/key_figs/DCG-result-2.jpg)

@@ -456,9 +456,10 @@ THEMES.forEach(th => th.steps.forEach(s => (s.pubs || []).forEach(p => {
   if (!seen.has(p.u)) seen.set(p.u, { ...p, nums: new Set([th.num]) });
   else seen.get(p.u).nums.add(th.num);
 })));
-const yr = v => { const m = String(v).match(/(19|20|26)\d{2}/); return m ? +m[0] : 0; };
+  /* Order of appearance, not by date: a Map keeps insertion order, and the
+     walk above visits the themes in order and the steps within them, so a
+     theme's papers stay together and follow the argument that cites them. */
 document.getElementById('reflist').innerHTML = [...seen.values()]
-  .sort((a, b) => yr(b.v) - yr(a.v) || a.t.localeCompare(b.t))
   .map(p => `<li><a href="${p.u}" target="_blank">${p.t}</a>
     <span class="pv"> &#8212; ${p.v}</span>
     <span class="tg">${[...p.nums].join(', ')}</span></li>`).join('');

@@ -297,7 +297,7 @@ const THEMES = [
       { src:"figs/opt_optimistic.png", pair:true,
         cap:"Optimistic learning, same problem: 0.93 of the mass lands on the good joint action." }
     ],
-    pubs:[{t:"Optimism as Risk-Seeking in Multi-Agent Reinforcement Learning", v:"IEEE Control Systems Letters 2025", u:"https://arxiv.org/abs/2509.24047"}],
+    pubs:[{t:"Optimism as Risk-Seeking in Multi-Agent Reinforcement Learning", v:"IEEE L-CSS 2026", u:"https://arxiv.org/abs/2509.24047"}],
     remains:null
   },
   {
@@ -354,7 +354,7 @@ const THEMES = [
       { src:"figs/sed_thermal_ratio.png", pair:true,
         cap:"What truncating at κ hops actually costs, falling to 10⁻¹⁰. A few hops buys essentially all of the performance." }
     ],
-    pubs:[{t:"On the Optimal Control of Network LQR with Spatially-Exponential Decaying Structure", v:"Automatica 2025", u:"https://arxiv.org/abs/2209.14376"}],
+    pubs:[{t:"Optimal Network Control of Spatially Exponential Decaying Linear Quadratic Regulator", v:"Automatica 2025", u:"https://doi.org/10.1016/j.automatica.2024.112061"}],
     remains:"If the answer we want is already local, then computing it globally and throwing most of it away is waste. The structure should be shaping the algorithm, not just excusing the architecture."
   },
   {
@@ -405,7 +405,7 @@ const THEMES = [
     pubs:[
       {t:"FICO: Finite-Horizon Closed-Loop Factorization for Unified Multi-Agent Path Finding", v:"arXiv:2511.13961", u:"https://arxiv.org/abs/2511.13961"},
       {t:"Adaptive-Horizon Conflict-Based Search for Closed-Loop Multi-Agent Path Finding", v:"IEEE RA-L 2026", u:"https://arxiv.org/abs/2602.12024"},
-      {t:"Certificate-Driven Closed-Loop Multi-Agent Path Finding with Inheritable Factorization", v:"arXiv:2604.00428", u:"https://arxiv.org/abs/2604.00428"},
+      {t:"Certificate-Driven Closed-Loop Multi-Agent Path Finding with Inheritable Factorization", v:"IEEE CDC 2026", u:"https://arxiv.org/abs/2604.00428"},
       {t:"Cooperative Multi-Agent Graph Bandits: UCB Algorithm and Regret Analysis", v:"ACC 2024", u:"https://arxiv.org/abs/2401.10383"},
       {t:"Multi-Agent Coverage Control with Transient Behavior Consideration", v:"L4DC 2024", u:"https://arxiv.org/abs/2404.05995"},
       {t:"Adaptive Model Predictive Control with Ensembled Multi-Time Scale Deep-Learning Models for Smart Control of Natural Ventilation", v:"Building and Environment 2023", u:"https://www.sciencedirect.com/science/article/pii/S0360132323005462"}
@@ -474,7 +474,7 @@ const THEMES = [
       cap:"A power-system fault, with and without the constraint enforced. Top: generator angles under the constrained solution, staying inside their separation limit. Bottom: a solution that reaches a comparable objective while ignoring that limit, swinging roughly twice as far. Both look like success in the objective value; only one is operable." }],
     pubs:[
       {t:"Zeroth-Order Constrained Optimization from a Control Perspective via Feedback Linearization", v:"arXiv:2509.24056", u:"https://arxiv.org/abs/2509.24056"},
-      {t:"Random-Subspace Sequential Quadratic Programming for Constrained Zeroth-Order Optimization", v:"arXiv:2604.02202", u:"https://arxiv.org/abs/2604.02202"}
+      {t:"Random-Subspace Sequential Quadratic Programming for Constrained Zeroth-Order Optimization", v:"IEEE CDC 2026", u:"https://arxiv.org/abs/2604.02202"}
     ],
     remains:"Sometimes there is no constraint function to query at all. What counts as feasible is known only through examples of feasible behaviour."
   },
@@ -493,7 +493,9 @@ const THEMES = [
     ],
     figs:[{ svg:SVG_DIFFUSION, drawn:true, ongoing:true,
       cap:"The mechanism, drawn rather than measured — this work is in progress. The task gradient leaves the manifold of trajectories the model learned to call feasible; the denoiser plays the role that an explicit constraint residual played earlier in the theme." }],
-    pubs:[],
+    pubs:[
+      {t:"Denoising as Projection: Constrained Optimization with Gradient-Guided Diffusion", v:"arXiv:2608.29507", u:"https://arxiv.org/abs/2608.29507"}
+    ],
     remains:null
   }]
 }];
