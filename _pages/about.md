@@ -21,6 +21,16 @@ Recent Updates
 
   <span style="color: #4F81BD; font-weight: 700;">Sep 2026</span>
   <span>
+    🎤 Excited to present
+    <a href="https://www.purdue.edu/science/events/glsiam-schedule-speakers.html">
+      Denoising as Projection: Understanding Gradient-Guided Diffusion as Constrained Optimization
+    </a>
+    at the 2026 SIAM Great Lakes Section Meeting at Purdue University!
+    Looking forward to sharing this work with the scientific computing community.
+  </span>
+
+  <span style="color: #4F81BD; font-weight: 700;">Sep 2026</span>
+  <span>
     🚀 Excited to share our new paper,
     <a href="https://arxiv.org/abs/2608.29507">
       Denoising as Projection: Constrained Optimization with Gradient-Guided Diffusion
