@@ -19,6 +19,13 @@ Recent Updates
 ----
 <div style="display: grid; grid-template-columns: 90px auto; gap: 14px 18px; line-height: 1.6;">
 
+  <span style="color: #4F81BD; font-weight: 700;">Oct 2026</span>
+  <span>
+    🧠 Excited to have served as a session lead at the
+    <a href="https://afwerxchallenge.com/exocortex-air">AFWERX Exocortex Air Challenge Definition Workshop</a>
+    in San Mateo! I led discussions on “Agentic Harnesses and System Co-design,” bringing together government, academic, and industry participants to help shape research challenges for AI-enabled decision support.
+  </span>
+
   <span style="color: #4F81BD; font-weight: 700;">Sep 2026</span>
   <span>
     🎤 Excited to present
