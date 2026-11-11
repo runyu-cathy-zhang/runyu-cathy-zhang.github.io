@@ -3,7 +3,7 @@
 Render the closing animation to a GIF for slides.
 
     python3 showcase-src/make-gif.py [-o OUT.gif] [--fps N] [--width PX]
-                                     [--bg paper|white|none]
+                                     [--bg paper|white|none] [--loop once|forever]
 
 Each frame is a real browser render of gif-frame.html?t=<ms>, which reuses the
 page's own scene through window.__canimParts -- so the pieces, the texture and
@@ -68,6 +68,8 @@ def main():
     ap.add_argument('--colors', type=int, default=160)
     ap.add_argument('--bg', choices=('paper', 'white', 'none'), default='paper',
                     help="page background: the site's paper, white, or transparent")
+    ap.add_argument('--loop', choices=('once', 'forever'), default='once',
+                    help='once: play through and hold the final frame (default)')
     ap.add_argument('--fresh', action='store_true',
                     help='re-render every frame instead of reusing the cache')
     ap.add_argument('--keep', action='store_true',
@@ -137,7 +139,12 @@ def main():
     durations[-1] = per + HOLD_MS
 
     save_kw = dict(save_all=True, append_images=frames[1:], duration=durations,
-                   loop=0, optimize=True, disposal=2)
+                   optimize=True, disposal=2)
+    # "Play once and stop" is the absence of the Netscape loop block, not a
+    # count of 1 -- viewers disagree about whether 1 means once or twice, but
+    # they all agree about a file that never asks to repeat.
+    if a.loop == 'forever':
+        save_kw['loop'] = 0
     if a.bg == 'none':
         save_kw['transparency'] = a.colors - 1
         save_kw['disposal'] = 2          # clear to background between frames
@@ -148,8 +155,10 @@ def main():
     print('wrote %s' % a.out)
     print('  %d frames, %d fps, %dx%d, %d colours, %s background, %.1f MB'
           % (len(frames), a.fps, a.width, h, a.colors, a.bg, mb))
-    print('  runs %.1fs then holds %.1fs, loops forever'
-          % (DURATION_MS / 1000, HOLD_MS / 1000))
+    print('  runs %.1fs, then %s'
+          % (DURATION_MS / 1000,
+             'holds the last frame' if a.loop == 'once'
+             else 'holds %.1fs and repeats' % (HOLD_MS / 1000)))
 
 
 if __name__ == '__main__':
