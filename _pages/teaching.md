@@ -29,30 +29,32 @@ Guest Lectures and Tutorials
 Research Mentoring and Student Supervision
 ---
 
+Collaborative research mentoring and technical guidance, working alongside students’ primary faculty advisors.
+
 ### At Harvard University
 
-- **Phevos Paschalidis**, Harvard College, 2023–2024
-- **Aryan Naveen**, Harvard College, 2023–2024
+- **Phevos Paschalidis**, Harvard College, 2023–2024 (research advisor: N. Li)
+- **Aryan Naveen**, Harvard College, 2023–2024 (research advisor: N. Li)
 <br>Project: Algorithm design for the multi-agent graph bandit problem (paper accepted to ACC 2023, preparing journal submission to TAC)
-- **Johan Olsson**, visiting master's student from Lund University, 2023
+- **Johan Olsson**, visiting master's student from Lund University, 2023 (thesis supervisors: N. Li, E. Tegling, and A. Rantzer)
 <br>Project: Distributed reinforcement learning design for networked systems (paper accepted to ACC 2023)
 
 ### At MIT
 
-- **Jiarui Li**, PhD student, MIT Civil and Environmental Engineering, 2025–present
-- **Xinling Li**, PhD student, MIT Transportation, 2025–present
-- **Yujun Huang**, PhD student, MIT Civil and Environmental Engineering
-- **Yubo Cai**, PhD student, MIT Computational Science and Engineering
-- **Riccardo Fiorista**, graduate student, MIT Transportation
-- **Karan Mahesh**, graduate student, MIT Mechanical Engineering
-- **Augusto Mondelli**, visiting master's student from ETH Zürich
-- **Florian Lercher**, visiting master's student from TU Munich
-- **Raphael Karmalker**, visiting master's student, MIT Energy Initiative
-- **Zeina Rmaile**, MIT Summer Research Program intern and Georgia Institute of Technology undergraduate, Summer 2026
+- **Jiarui Li**, PhD student, MIT Civil and Environmental Engineering, 2025–present (advisor: G. Zardini)
+- **Xinling Li**, PhD student, MIT Transportation, 2025–present (advisor: G. Zardini)
+- **Yujun Huang**, PhD student, MIT Civil and Environmental Engineering, 2025–present (advisor: G. Zardini)
+- **Yubo Cai**, PhD student, MIT Civil and Environmental Engineering / Computational Science and Engineering, 2025–present (advisor: G. Zardini)
+- **Riccardo Fiorista**, graduate student, MIT Transportation, 2025–present (faculty research groups: G. Zardini and J. Zhao)
+- **Karan Mahesh**, graduate student, MIT Mechanical Engineering, 2026–present (advisors: M. Benjamin and G. Zardini)
+- **Augusto Mondelli**, visiting master's student from ETH Zürich, 2026 (MIT supervisor: G. Zardini)
+- **Florian Lercher**, visiting PhD student from Technical University of Munich, 2026 (advisor: M. Althoff; MIT host: G. Zardini)
+- **Raphael Karmalker**, visiting master's student, MIT Energy Initiative, 2026 (MIT host: D. Deka)
+- **Zeina Rmaile**, MIT Summer Research Program intern and Georgia Institute of Technology undergraduate, Summer 2026 (faculty host: G. Zardini)
 
 ### Outside Harvard and MIT
 
-- **Mingjia He**, PhD student, ETH Zürich, 2025–present
-- **Binghang Lu**, PhD student, Purdue University, 2026–present
-- **Zheyuan Deng**, master's student, Brown University, 2026–present
-- **Yuze Ge**, master's student, School of Data Science, Fudan University, 2026–present
+- **Mingjia He**, PhD student, ETH Zürich, 2025–present (advisors: E. Frazzoli and G. Zardini)
+- **Binghang Lu**, PhD student, Purdue University, 2025–present (advisor: G. Lin)
+- **Zheyuan Deng**, master's student, Brown University, 2025–present (external research mentoring)
+- **Yuze Ge**, master's student, School of Data Science, Fudan University, 2026–present (external research mentoring; advisor: R. Jiang)
