@@ -10,9 +10,9 @@ the geometry are the ones the site animates, not a copy that would drift from
 them. Headless Chrome can only screenshot once per launch, so frames are
 captured a few processes at a time.
 
-Two deliberate differences from the page, both for slides:
-  * the interface boxes never appear -- a GIF has nothing to hand off to
-  * the examined agent stays on screen at the end; the page fades it and crops
+The three interface boxes arrive on the same beats as on the page. The one
+difference is for slides: the examined agent stays on screen at the end, where
+the page fades it and crops the stage to let the boxes take its place.
 """
 import argparse, os, shutil, subprocess, sys
 from concurrent.futures import ThreadPoolExecutor
@@ -20,21 +20,36 @@ from concurrent.futures import ThreadPoolExecutor
 HERE = os.path.dirname(os.path.abspath(__file__))
 CHROME = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
 SHOT_W = 1240                     # capture wider than we ship, then downscale
-SHOT_H = round(SHOT_W * 452 / 990)
+SHOT_H = 742                      # stage (990x452 viewBox) plus the three boxes
 DURATION_MS = 6287                # the timeline at its 1.5x playback speed
 HOLD_MS = 1300                    # beat on the finished frame before looping
 
 
 def shoot(args):
+    """One frame, retried once.
+
+    A headless Chrome occasionally hangs instead of exiting -- one frame in a
+    hundred or so -- and without a timeout the whole run waits on it forever.
+    Kill it, try again, and only then give up.
+    """
     t, path = args
-    subprocess.run(
-        [CHROME, '--headless', '--disable-gpu', '--hide-scrollbars',
-         '--force-color-profile=srgb', '--allow-file-access-from-files',
-         '--screenshot=' + path, '--window-size=%d,%d' % (SHOT_W, SHOT_H),
-         '--virtual-time-budget=2500',
-         'file://%s/gif-frame.html?t=%d' % (HERE, t)],
-        stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=False)
-    return path if os.path.exists(path) else None
+    if os.path.exists(path):
+        return path                       # already rendered; resume rather than redo
+    for attempt in (1, 2):
+        try:
+            subprocess.run(
+                [CHROME, '--headless', '--disable-gpu', '--hide-scrollbars',
+                 '--force-color-profile=srgb', '--allow-file-access-from-files',
+                 '--screenshot=' + path, '--window-size=%d,%d' % (SHOT_W, SHOT_H),
+                 '--virtual-time-budget=2500',
+                 'file://%s/gif-frame.html?t=%d' % (HERE, t)],
+                stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+                check=False, timeout=60)
+        except subprocess.TimeoutExpired:
+            pass
+        if os.path.exists(path):
+            return path
+    return None
 
 
 def main():
@@ -43,6 +58,10 @@ def main():
     ap.add_argument('--fps', type=int, default=20)
     ap.add_argument('--width', type=int, default=1000, help='width of the GIF itself')
     ap.add_argument('--colors', type=int, default=160)
+    ap.add_argument('--fresh', action='store_true',
+                    help='re-render every frame instead of reusing the cache')
+    ap.add_argument('--keep', action='store_true',
+                    help='keep the frame cache, so a re-encode needs no re-render')
     a = ap.parse_args()
 
     try:
@@ -53,8 +72,9 @@ def main():
         sys.exit('Chrome not found at %s' % CHROME)
 
     tmp = os.path.join(HERE, '.gif-frames')
-    shutil.rmtree(tmp, ignore_errors=True)
-    os.makedirs(tmp)
+    if a.fresh:
+        shutil.rmtree(tmp, ignore_errors=True)
+    os.makedirs(tmp, exist_ok=True)
 
     step = 1000.0 / a.fps
     times = [round(i * step) for i in range(int(DURATION_MS / step) + 1)]
@@ -67,7 +87,8 @@ def main():
     if missing:
         sys.exit('%d frame(s) failed to render' % len(missing))
 
-    h = round(a.width * 452 / 990)
+    probe = Image.open(jobs[0][1])
+    h = round(a.width * probe.height / probe.width)
     frames = []
     for _, p in jobs:
         im = Image.open(p).convert('RGB')
@@ -89,7 +110,8 @@ def main():
 
     frames[0].save(a.out, save_all=True, append_images=frames[1:],
                    duration=durations, loop=0, optimize=True, disposal=2)
-    shutil.rmtree(tmp, ignore_errors=True)
+    if not a.keep:
+        shutil.rmtree(tmp, ignore_errors=True)
     mb = os.path.getsize(a.out) / 1e6
     print('wrote %s' % a.out)
     print('  %d frames, %d fps, %dx%d, %d colours, %.1f MB'

@@ -10,12 +10,16 @@
   pieces, the texture and the geometry are the same object the site animates --
   not a reimplementation that would drift from it.
 
-  Its timeline differs from the page's in exactly two ways, both asked for:
-    * no interface boxes appear, since a GIF has nothing to hand off to. The
-      beats where they would have arrived are kept, because the tab and notch
-      pulses are still running through them.
-    * the examined agent does not fade and the stage does not crop at the end.
-      Everything stays on screen, which is what a slide wants.
+  The three interface boxes arrive exactly as they do on the page, in the same
+  order and on the same beats: Train for composability after the agent travels
+  down, Outgoing when the tab pulses, Incoming when the notch pulses. Their
+  words come from the generated data file, so they follow plate5.md.
+
+  One difference from the page, and it is the point of this version: the
+  examined agent does not fade and the stage does not crop at the end. On the
+  site it gets out of the way so the boxes can rise into its space; here
+  everything stays on screen, which is what a slide wants. The boxes are plain
+  markup -- no click handler, nothing to expand.
 -->
 <!-- the unscoped source stylesheet: the copy in assets/showcase is scoped
      under #showcase-root, so its .canim rules would not apply here -->
@@ -71,13 +75,43 @@ html,body{margin:0;padding:0;background:var(--paper);}
 .canim-stage{padding-bottom:45.66% !important;}
 </style>
 </head><body>
-<div id="stageWrap"><div class="canim"><div class="canim-stage" id="stage"></div></div></div>
+<div id="stageWrap">
+  <div class="canim"><div class="canim-stage" id="stage"></div></div>
+  <div class="comps" id="comps"></div>
+</div>
+<script src="../assets/showcase/research-data-v5.js"></script>
 <script src="composable-anim.js"></script>
 <script>
 (function () {
   var P = window.__canimParts;
   var ctx = P.build(document.getElementById('stage'));
   ctx.stage = document.getElementById('stage');
+
+  /* The three boxes, same markup and classes as the page so showcase-base.css
+     styles them identically -- minus .compgo ("more down"), since nothing here
+     is clickable. The robot glyph is the only thing copied rather than read;
+     it is a fixed mark, not content. */
+  var ROBOT = '<span class="compbot" aria-hidden="true">' +
+    '<svg width="23" height="23" viewBox="0 0 24 24" fill="none" ' +
+    'stroke="currentColor" stroke-width="1.9" stroke-linecap="round">' +
+    '<path d="M12 3v2.4"/><circle cx="12" cy="2.2" r="1.2" fill="currentColor" ' +
+    'stroke="none"/><rect x="4.2" y="5.6" width="15.6" height="12.4" rx="3.4"/>' +
+    '<circle cx="9.2" cy="11.2" r="1.25" fill="currentColor" stroke="none"/>' +
+    '<circle cx="14.8" cy="11.2" r="1.25" fill="currentColor" stroke="none"/>' +
+    '<path d="M9.3 14.9h5.4"/><path d="M4.2 9.4H2.6v4.2h1.6"/>' +
+    '<path d="M19.8 9.4h1.6v4.2h-1.6"/></svg></span>';
+
+  var comps = document.getElementById('comps');
+  comps.innerHTML = FUTURE.components.map(function (c, i) {
+    return '<div class="comphead" data-comp="' + i + '">' +
+      (i ? '<span class="seam"><i></i></span>' : '') +
+      (i === 1 ? '<span class="compagent">' + ROBOT + 'Agent A</span>' : '') +
+      '<span class="compt">' + c.name + '</span>' +
+      '<span class="compsum">' + c.summary + '</span>' +
+      '</div>';
+  }).join('');
+  var heads = [].slice.call(comps.querySelectorAll('.comphead'));
+  heads.forEach(function (h) { h.style.opacity = 0; });
 
   /* The page's timeline, with the two differences described above. Written at
      1x and divided by SPEED, exactly as the original does, so the rhythm she
@@ -91,6 +125,11 @@ html,body{margin:0;padding:0;background:var(--paper);}
     a.pause();
     anims.push(a);
     return a;
+  }
+  function reveal(head, at) {
+    A(head, [{ opacity: 0, transform: 'translateY(14px)' },
+             { opacity: 1, transform: 'translateY(0)' }],
+      { duration: 520, delay: at });
   }
   function pulse(node, at) {
     node.style.transformBox = 'fill-box';
@@ -136,7 +175,8 @@ html,body{margin:0;padding:0;background:var(--paper);}
   });
   A(ctx.team, [{ opacity: 1 }, { opacity: .4 }], { duration: 560, delay: T + 240 });
   T += 950 + 160;
-  T += 520 + 420;                      // beat where "Train for composability" arrived
+  reveal(heads[1], T);                 // Train for composability
+  T += 520 + 420;
 
   pulse(ctx.tabRing, T);                                     // 4. tab = what it sends
   ctx.tabLabel.style.transformBox = 'fill-box';
@@ -144,7 +184,8 @@ html,body{margin:0;padding:0;background:var(--paper);}
                    { opacity: 1, transform: 'translateX(0)' }],
     { duration: 420, delay: T + 120 });
   T += 900;
-  T += 520 + 460;                      // beat where "Outgoing interface" arrived
+  reveal(heads[2], T);                 // Outgoing interface
+  T += 520 + 460;
 
   pulse(ctx.notchRing, T);                                   // 5. notch = what it receives
   ctx.notchLabel.style.transformBox = 'fill-box';
@@ -152,7 +193,8 @@ html,body{margin:0;padding:0;background:var(--paper);}
                      { opacity: 1, transform: 'translateX(0)' }],
     { duration: 420, delay: T + 120 });
   T += 900;
-  T += 520 + 360;                      // beat where "Incoming interface" arrived
+  reveal(heads[0], T);                 // Incoming interface
+  T += 520 + 360;
 
   ctx.pieces.forEach(function (g, i) {                       // 6. team back to full
     if (i === 0) return;
