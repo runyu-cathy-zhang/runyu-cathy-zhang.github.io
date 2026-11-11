@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>composability animation — single frame for the GIF</title>
+<!--
+  Renders ONE frame of the closing animation, chosen by ?t=<milliseconds>, so a
+  headless browser can be pointed at it once per frame and the frames stitched
+  into a GIF. See make-gif.py.
+
+  It reuses the page's own scene through window.__canimParts.build, so the
+  pieces, the texture and the geometry are the same object the site animates --
+  not a reimplementation that would drift from it.
+
+  Its timeline differs from the page's in exactly two ways, both asked for:
+    * no interface boxes appear, since a GIF has nothing to hand off to. The
+      beats where they would have arrived are kept, because the tab and notch
+      pulses are still running through them.
+    * the examined agent does not fade and the stage does not crop at the end.
+      Everything stays on screen, which is what a slide wants.
+-->
+<!-- the unscoped source stylesheet: the copy in assets/showcase is scoped
+     under #showcase-root, so its .canim rules would not apply here -->
+<link rel="stylesheet" href="showcase-base.css">
+<style>
+
+:root{
+  --measure:940px;
+  --fs-body:17px; --lh-body:1.62;
+  --pad-hero:64px; --gap-section:66px; --gap-band:80px; --pad-band:66px;
+  --paper:#f4f1e8; --panel:#fdfcf8; --card:#fffefb; --fig-bg:#ffffff;
+  --ink:#15130f; --ink2:#4b463d; --ink3:#867f71;
+  --rule:#cec7b6; --rule2:#e2dccd; --hover:rgba(0,0,0,.015);
+  --accent:#7a2e22;
+  --t1:#5b4b8a; --t2:#1d6b5f; --t3:#a8541f;
+
+  --font-display:"Iowan Old Style",Palatino,"Palatino Linotype","Book Antiqua",Georgia,serif;
+  --font-body:"Iowan Old Style",Palatino,"Palatino Linotype","Book Antiqua",Georgia,serif;
+  --font-ui:"Gill Sans","Gill Sans MT",Calibri,ui-sans-serif,-apple-system,"Segoe UI",sans-serif;
+  --font-mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --w-display:400; --w-cardq:400; --w-lab:600;
+  --lh-display:1.12; --ls-display:-.012em;
+  --fs-h1-vw:4.6vw; --fs-h1-max:2.98rem; --fs-h2-max:2.1rem;
+  --fi-quote:italic;
+  --fs-lab:.78rem; --ls-lab:.07em; --tt-lab:none; --fv-lab:small-caps;
+  --r-sm:0px; --r-md:0px;
+  --fig-band:184px; --fig-band-pair:150px;
+  /* frame behind the four motivation examples; set to transparent and 0
+     to drop the panel and sit the images straight on the paper */
+  --exfig-bg:var(--fig-bg); --exfig-border:1px solid var(--rule2);
+  --fs-iname:18px;               /* roadmap theme title: sized to fit one line */
+  --fs-isub:.78rem;
+  --hero-q-w:820px;
+  --nav-bg:rgba(244,241,232,.93); --nav-border:1px solid #cec7b6;
+  --frame-border:1px solid #cec7b6; --card-border:1px solid #e2dccd;
+
+  --band-bg:#15130f; --band-ink:#f2eee2; --band-ink2:#b4ac99; --band-ink3:#8a8272;
+  --band-hi:#ffffff; --band-rule:#33302a; --band-fig-bg:#191712;
+  --band-hub-bg:#2b2721; --band-out-bg:#221f19;
+  --band-t1:#a99bd0; --band-t2:#6fc0ae; --band-t3:#e0a273;
+
+  --dgm-ink:#15130f; --dgm-mut:#7c7466; --dgm-faint:#cec7b6; --dgm-paper:#fffefb;
+  --dgm-onink:#e8e2d2; --dgm-alt:#2f6b8a; --dgm-wash:#f6f2e9; --dgm-warn:#b03a2e;
+  --lb-bg:rgba(16,14,11,.94); --lb-ink:#ded7c7;
+}
+/* Editorial signature: rules do the structural work, nothing is rounded. */
+.plate-frame{box-shadow:none;}
+.sec-thesis h1.big{max-width:none;}
+
+html,body{margin:0;padding:0;background:var(--paper);}
+#stageWrap{width:1240px;}
+/* the page crops the stage at the end; here it never does */
+.canim-stage{padding-bottom:45.66% !important;}
+</style>
+</head><body>
+<div id="stageWrap"><div class="canim"><div class="canim-stage" id="stage"></div></div></div>
+<script src="composable-anim.js"></script>
+<script>
+(function () {
+  var P = window.__canimParts;
+  var ctx = P.build(document.getElementById('stage'));
+  ctx.stage = document.getElementById('stage');
+
+  /* The page's timeline, with the two differences described above. Written at
+     1x and divided by SPEED, exactly as the original does, so the rhythm she
+     approved is preserved rather than re-tuned. */
+  var anims = [];
+  function A(node, frames, opts) {
+    var o = Object.assign({ fill: 'both', easing: 'cubic-bezier(.22,.61,.36,1)' }, opts);
+    if (o.duration) o.duration /= P.SPEED;
+    if (o.delay) o.delay /= P.SPEED;
+    var a = node.animate(frames, o);
+    a.pause();
+    anims.push(a);
+    return a;
+  }
+  function pulse(node, at) {
+    node.style.transformBox = 'fill-box';
+    node.style.transformOrigin = 'center';
+    A(node, [{ transform: 'scale(.55)', opacity: 0 },
+             { transform: 'scale(1)', opacity: .95, offset: .35 },
+             { transform: 'scale(1.75)', opacity: 0 }],
+      { duration: 900, delay: at, iterations: 2 });
+  }
+
+  var T = 0;
+  ctx.pieces.forEach(function (g, i) {                       // 1. drift in
+    var s = P.START[i];
+    A(g, [{ transform: 'translate(' + s.x + 'px,' + (s.y + 34) + 'px) rotate(' + s.r + 'deg) scale(.9)', opacity: 0 },
+          { transform: 'translate(' + s.x + 'px,' + s.y + 'px) rotate(' + s.r + 'deg) scale(1)', opacity: 1 }],
+      { duration: 600, delay: i * 105 });
+  });
+  T = 600 + 4 * 105 + 200;
+
+  ctx.pieces.forEach(function (g, i) {                       // 2. lock together
+    var s = P.START[i], sl = P.SLOTS[i];
+    A(g, [{ transform: 'translate(' + s.x + 'px,' + s.y + 'px) rotate(' + s.r + 'deg)' },
+          { transform: 'translate(' + (P.GX + sl.col * P.S) + 'px,' + (P.GY + sl.row * P.S) + 'px) rotate(0deg)' }],
+      { duration: 860, delay: T + i * 85 });
+  });
+  T += 860 + 4 * 85;
+  A(ctx.team, [{ opacity: 0 }, { opacity: 1 }], { duration: 440, delay: T });
+  T += 440 + 260;
+
+  ctx.callout.style.opacity = 1;                             // 3. A travels down
+  ctx.clone.style.transformBox = 'fill-box';
+  ctx.clone.style.transformOrigin = '0 0';
+  A(ctx.clone, [
+    { transform: 'translate(' + ctx.from[0] + 'px,' + ctx.from[1] + 'px) scale(1)', opacity: 0 },
+    { transform: 'translate(' + P.ZX + 'px,' + P.ZY + 'px) scale(' + P.ZK + ')', opacity: 1 }
+  ], { duration: 950, delay: T });
+  var len = ctx.link.getTotalLength ? ctx.link.getTotalLength() : 400;
+  ctx.link.style.strokeDasharray = '7 7';
+  A(ctx.link, [{ strokeDashoffset: len, opacity: 0 }, { strokeDashoffset: 0, opacity: .4 }],
+    { duration: 780, delay: T + 120 });
+  ctx.pieces.forEach(function (g, i) {
+    A(g, [{ opacity: 1 }, { opacity: i === 0 ? 1 : .4 }], { duration: 560, delay: T + 240 });
+  });
+  A(ctx.team, [{ opacity: 1 }, { opacity: .4 }], { duration: 560, delay: T + 240 });
+  T += 950 + 160;
+  T += 520 + 420;                      // beat where "Train for composability" arrived
+
+  pulse(ctx.tabRing, T);                                     // 4. tab = what it sends
+  ctx.tabLabel.style.transformBox = 'fill-box';
+  A(ctx.tabLabel, [{ opacity: 0, transform: 'translateX(-8px)' },
+                   { opacity: 1, transform: 'translateX(0)' }],
+    { duration: 420, delay: T + 120 });
+  T += 900;
+  T += 520 + 460;                      // beat where "Outgoing interface" arrived
+
+  pulse(ctx.notchRing, T);                                   // 5. notch = what it receives
+  ctx.notchLabel.style.transformBox = 'fill-box';
+  A(ctx.notchLabel, [{ opacity: 0, transform: 'translateX(8px)' },
+                     { opacity: 1, transform: 'translateX(0)' }],
+    { duration: 420, delay: T + 120 });
+  T += 900;
+  T += 520 + 360;                      // beat where "Incoming interface" arrived
+
+  ctx.pieces.forEach(function (g, i) {                       // 6. team back to full
+    if (i === 0) return;
+    A(g, [{ opacity: .4 }, { opacity: 1 }], { duration: 600, delay: T, fill: 'forwards' });
+  });
+  A(ctx.team, [{ opacity: .4 }, { opacity: 1 }], { duration: 600, delay: T, fill: 'forwards' });
+  T += 600;
+
+  window.__total = Math.round(T / P.SPEED);
+
+  var t = +(new URLSearchParams(location.search).get('t') || 0);
+  anims.forEach(function (a) { a.currentTime = t; });
+  document.documentElement.setAttribute('data-ready', '1');
+})();
+</script>
+</body></html>

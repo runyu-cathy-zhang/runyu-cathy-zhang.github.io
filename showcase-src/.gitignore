@@ -16,3 +16,8 @@ design-tokens.json.bak
 .token-history/
 
 .DS_Store
+
+# Rendered GIFs and their frame cache -- deliverables for slides, not part of
+# the site. Rebuild with `python3 showcase-src/make-gif.py`.
+composability*.gif
+.gif-frames/

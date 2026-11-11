@@ -461,6 +461,15 @@
     window.__canim = { play: play, ctx: ctx };
   }
 
+  /* Exposed for the GIF harness (gif-frame.html), which reuses this scene and
+     its geometry but supplies its own timeline: a GIF has no page boxes to hand
+     off to, and it keeps the examined agent on screen at the end instead of
+     fading it. Reading these changes nothing about the page itself. */
+  window.__canimParts = {
+    build: build, padFor: padFor, START: START, SLOTS: SLOTS,
+    VW: VW, VH: VH, S: S, GX: GX, GY: GY, ZX: ZX, ZY: ZY, ZK: ZK, SPEED: SPEED
+  };
+
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {
