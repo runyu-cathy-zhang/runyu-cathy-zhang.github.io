@@ -70,6 +70,19 @@
 .sec-thesis h1.big{max-width:none;}
 
 html,body{margin:0;padding:0;background:var(--paper);}
+/* ?bg=white or ?bg=none overrides it, for slide decks that are not on paper */
+html.bg-white,html.bg-white body{background:#fff;}
+html.bg-none,html.bg-none body{background:transparent;}
+
+/* The boxes are set for a web column; on a slide there is room, and the text
+   has to read from the back of a room. Everything inside them goes up by about
+   a third, with the padding and the robot glyph following so the proportions
+   hold. The site itself is untouched -- these rules live only here. */
+.comphead{padding:22px 24px 24px;}
+.compagent{font-size:1.72rem;gap:12px;padding-bottom:14px;margin-bottom:14px;}
+.compagent svg{width:30px;height:30px;}
+.compt{font-size:1.42rem;margin:0 0 9px;}
+.compsum{font-size:1.2rem;line-height:1.45;}
 #stageWrap{width:1240px;}
 /* the page crops the stage at the end; here it never does */
 .canim-stage{padding-bottom:45.66% !important;}
@@ -205,7 +218,12 @@ html,body{margin:0;padding:0;background:var(--paper);}
 
   window.__total = Math.round(T / P.SPEED);
 
-  var t = +(new URLSearchParams(location.search).get('t') || 0);
+  var q = new URLSearchParams(location.search);
+  var bg = q.get('bg');
+  if (bg === 'white' || bg === 'none') {
+    document.documentElement.className = 'bg-' + bg;
+  }
+  var t = +(q.get('t') || 0);
   anims.forEach(function (a) { a.currentTime = t; });
   document.documentElement.setAttribute('data-ready', '1');
 })();
